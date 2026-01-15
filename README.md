@@ -121,7 +121,7 @@ cout << "Koniec!" << endl;
 Generalnie przyjętą konwencją jest używanie liter `i`, `j`, `k` itd. jako liczników pętli.
 
 Nieskończona pętla jest specjalnym rodzajem pętli while; nigdy się nie kończy. Jej stan pozostaje zawsze prawdziwy.
-Nieskończoną pętlę można także uzyskać, gdy niepoprawnie sformułujemy warunek zakończenia pętli.
+
 Przykład:
 ```c++
 while (true) {
@@ -130,7 +130,6 @@ while (true) {
 
 ```
 
-#### Nieskończona pętla
 Nieskończoną pętlę można także uzyskać, gdy niepoprawnie sformułujemy warunek zakończenia pętli.
 
 ```c++
