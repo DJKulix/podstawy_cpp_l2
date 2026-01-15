@@ -1,8 +1,10 @@
-## Podstawy programowania w C++ - instrukcja if, pętle
+# Podstawy programowania w C++ - instrukcja if, pętle
 
 
-### Instrukcja warunkowa IF
-Możesz użyć instrukcji `if`, aby wykonać fragment kodu, jeśli spełniony jest określony warunek. Jeśli wyrażenie ma wartość `True`, wykonywane są pewne instrukcje. W przeciwnym razie są one pomijane. Instrukcja `if` wygląda następująco:
+## Instrukcja warunkowa IF
+Możesz użyć instrukcji `if`, aby wykonać fragment kodu, jeśli spełniony jest określony warunek. 
+Jeśli wyrażenie ma wartość `True`, wykonywane są pewne instrukcje. W przeciwnym razie są one pomijane. Instrukcja `if`
+wygląda następująco:
 ```C++
 if (wyrażenie warunkowe){
   instrukcje
@@ -18,7 +20,7 @@ if (15 > 10){
 cout << "Koniec programu" << endl;
 ```
 
-Jeżeli używamy tylko jednej instrukcji to nie musimy używać nawiasów klamrowych:
+Jeżeli używamy tylko jednej instrukcji, to nie musimy używać nawiasów klamrowych:
 ```C++
 if (15 > 10)
   cout << "15 jest wieksze od 10" << endl;
@@ -47,23 +49,9 @@ else{
   cout << "Nie" << endl;
 }
 ```
-Instrukcje `if` i `else` można łączyć łańcuchowo, aby określić, która opcja w serii możliwości jest prawdziwa.
-Przykład:
-```c++
-int num = 12;
-
-if (num == 5) {
-    cout << "Numerem jest 5" << endl;
-}
-else if (num == 10) {
-    cout << "Numerem jest 10" << endl;
-}
-else {
-    cout << "Numerem nie jest 5 ani 10" << endl;
-}
-
-```
-Instrukcja `else if` jest rozwinięciem instrukcji `else`, w przypadku gdy chcemy sprawdzić kolejne warunki, np. gdy chcemy sprawdzić kolejne dzielinki liczby. Seria instrukcji `if` `else if` może mieć końcowy blok `else`, który jest wywoływany, jeśli żadne z wyrażeń `if` lub `elif` nie jest prawdziwe.
+Instrukcja `else if` jest rozwinięciem instrukcji `else`, w przypadku gdy chcemy sprawdzić kolejne warunki, 
+np. gdy chcemy sprawdzić kolejne dzielniki liczby. Seria instrukcji `if`, `else if` może mieć końcowy blok 
+`else`, który jest wywoływany, jeśli żadne z wyrażeń `if` lub `else if` nie jest prawdziwe.
 Przykład:
 ```C++
 int num = 12;
@@ -83,14 +71,41 @@ else {
 
 ```
 ### Operatory logiczne
-Służą do tworzenia bardziej skomplikowanych warunków dla instrukcji, które opierają się na więcej niż jednym warunku. Operatorami logicznymi w Pythonie są:
+Służą do tworzenia bardziej skomplikowanych warunków dla instrukcji, które opierają się na więcej niż jednym 
+warunku. Operatorami logicznymi w C++ są:
 - `&&` - AND (koniunkcja) 
 - `||` - OR (lub)
 - `!=` - NOT (zaprzeczenie)
 
+Przykład wyrażenia wykorzystującego koniunkcję:
+```c++
+float punkty = 4;
 
-### Zadanie
-Uzupełnij tabelę dla działan logiki matematycznej:
+if(punkty > 3 && punkty < 5 ) {
+    cout << "Ocena ze sprawdzianu: 4" << endl;
+}
+else if (punkty >= 5 && punkty < 8) {
+    cout << "Ocena ze sprawdzianu: 5" << endl;
+}
+
+```
+
+### Zadanie 1
+Uzupełnij tabelę dla działań alternatywy i koniunkcji z logiki matematycznej:
+
+| a | b | !a | !b | a && b | a \|\| b |
+|---|---|----|----|--------|----------|
+| 1 | 0 |||||
+| 0 | 1 |||||
+| 1 | 1 |||||
+| 0 | 0 ||||
+
+### Zadanie 2
+
+Uzupełnij instrukcje w pliku `if.cpp`.
+
+
+## Pętle
 
 ### Pętla while
 Instrukcja `if` jest uruchamiana jednokrotnie, jeśli jej warunek jest prawdziwy, a nigdy, jeśli oceniany jest jako fałszywy. Instrukcja `while` jest podobna, z tym wyjątkiem, że może być uruchamiana więcej niż raz. Instrukcje wewnątrz niej są wielokrotnie wykonywane, o ile warunek jest prawdziwy. Po przejściu do wartości False wykonywana jest następna sekcja kodu. Poniżej znajduje się pętla `while` zawierająca zmienną, która liczy od 1 do 5, w którym to momencie pętla kończy się.
@@ -103,7 +118,10 @@ while (i <= 5) {
 cout << "Koniec!" << endl;
 
 ```
-Nieskończona pętla jest specjalnym rodzajem pętli while; nigdy się nie kończy. Jego stan pozostaje zawsze prawdziwy.
+Generalnie przyjętą konwencją jest używanie liter `i`, `j`, `k` itd. jako liczników pętli.
+
+Nieskończona pętla jest specjalnym rodzajem pętli while; nigdy się nie kończy. Jej stan pozostaje zawsze prawdziwy.
+Nieskończoną pętlę można także uzyskać, gdy niepoprawnie sformułujemy warunek zakończenia pętli.
 Przykład:
 ```c++
 while (true) {
@@ -111,6 +129,18 @@ while (true) {
 }
 
 ```
+
+#### Nieskończona pętla
+Nieskończoną pętlę można także uzyskać, gdy niepoprawnie sformułujemy warunek zakończenia pętli.
+
+```c++
+int i = 1;
+while (i < 5) {
+    cout << "nieskonczona petla" << endl;
+}
+```
+Czego brakuje w powyższym przykładzie, żeby wyjść z pętli?
+
 Aby przedwcześnie zakończyć pętlę, można użyć instrukcji break. Po napotkaniu wewnątrz pętli instrukcja break powoduje natychmiastowe zakończenie pętli.
 Przykład:
 ```c++
@@ -129,57 +159,89 @@ cout << "Koniec" << endl;
 ```
 Kolejną instrukcją, która może być używana w pętlach, jest
 continue. W przeciwieństwie do break, continue przeskakuje
-z powrotem na początek pętli, zamiast ją zatrzymywać.
+z powrotem na początek pętli, zamiast ją zatrzymywać. 
 Przykład:
 ```c++
 int i = 0;
-
-while (true) {
+while (i < 5) {
     i++;
     if (i == 2) {
-        cout << "Pomin 2" << endl;
         continue;
     }
-    if (i == 5) {
-        cout << "Przerwanie" << endl;
-        break;
-    }
+
     cout << i << endl;
-}
+  
 cout << "Koniec" << endl;
 
 ```
 
+W powyższym przykładzie zostaną wypisane liczby od 1 do 5 z pominięciem 2.
+
 ### Pętla do while
+![image](6wksqjmmyw321.jpg)
 
-### Pętla for
-Pętla `for` iteruje po elementach np. listy w kolejności, wykonując blok instrukcji.
-Przykład:
+Pętla `do while` jest bardzo podobna do pętli `while`, z jedną istotną różnicą:
+warunek sprawdzany jest dopiero po wykonaniu instrukcji w pętli.
+Oznacza to, że ciało pętli wykona się zawsze co najmniej jeden raz, nawet jeśli warunek od początku jest fałszywy.
+
+
 ```c++
-string words[] = {"hello", "world", "spam", "eggs"};
+int i = 6;
 
-for (string word : words) {
-    cout << word << "!" << endl;
-}
-
-```
-Pętla `for` jest zwykle używana do powtarzania fragmentu kodu pewną liczbę razy. Odbywa się to przez połączenie pętli z funkcją `range`.
-Przykład:
-```c++
-for (int i = 0; i < 5; i++) {
+do {
     cout << i << endl;
+    i++;
+} while (i <= 5);
+
+cout << "Koniec!" << endl;
+```
+
+Przykładowym użyciem może być program, który pyta użytkownika o liczbę dopóki ten nie poda liczby dodatniej:
+```c++
+int liczba;
+
+do {
+    cout << "Podaj liczbe dodatnia: ";
+    cin >> liczba;
+} while (liczba <= 0);
+
+cout << "Podano poprawna liczbe" << endl;
+```
+### Pętla for
+Pętla `for` jest używana w przypadkach, gdy wiemy ile razy mają się wykonać instrukcje zawarte w pętli.
+
+![image](236438631_2262421010555107_4679815122481910129_n.jpg)
+Przykład:
+```c++
+for (instrukcja 1; instrukcja 2; instrukcja 3) {
+  // jakis madry kod
+}
+```
+Instrukcja 1 jest wykonywana jednorazowo przed rozpoczęciem wykonywania bloku kodu.
+
+Instrukcja 2 określa warunek wykonywania bloku kodu.
+
+Instrukcja 3 jest wykonywana za każdym razem po wykonaniu bloku kodu.
+
+Przykład:
+```c++
+for (int i = 0; i <= 10; i = i + 2) {
+  cout << i << endl;
 }
 
 ```
 
-## Zadania do wykonania
-:one: Przepisz przykład zagnieżdżonego if-a z początku instrukcji jako jeden `if`.
+## Zadania do wykonania 
+1. Przepisz przykład zagnieżdżonego if-a z początku instrukcji jako jeden `if`.
+2. Korzystając z pętli `for` oblicz sumę liczb naturalnych od 8 do 80.
+3. Napisz program który obliczy sumę liczb od 1 do 10 z następującymi warunkami:
+    - Pominie liczbę 4,
+    - Liczby 5, 7, 9 zostaną dodane podwójnie
+    - Liczba 10 zostanie dodana normalnie, a oprócz tego suma zostanie podwojona.
+4. Napisz prosty kalkulator posiadający menu wyboru 
+działania i wykonującego działania dla dwóch liczb (dodawanie, odejmowanie, mnożenie, dzielenie). W tym celu pomocne będą:
+    - zmienne dla liczb a, b
+    - zmienna dla działania
+    - wpisanie znaku `!` będzie kończyc program
 
-:two: Napisz skrypt, który zapyta użytkownika o imię, a potem wyświetli powitanie z wykorzystaniem podanego imienia.
-
-:three: Napisz krótki skrypt (wystarczy jedna linia kodu), który obliczy sumę liczb całkowitych wprowadzonych przez użytkownika (jeden input do, którego podamy dwie liczby rozdzielone spacją) i wynik wyświetli jako liczba zmiennoprzecinkowa.
-
-:four: Korzystając z pętli `for` oraz `sum` oblicz sumę liczb naturalnych od 8 do 80.
-
-:six: Korzystając ze zdobytych wiadomości, napisz prosty kalkulator posiadający menu wyboru działania i wykonującego działania dla dwóch liczb.
-
+![image](qy7vniac12q01.jpg)
